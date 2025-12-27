@@ -19,7 +19,7 @@ Given a natural-language change description, the model produces a **structured r
   "recommended_action": "",
   "confidence": "High"
 }
-
+```
 ---
 
 ## Flow
