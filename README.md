@@ -1,8 +1,6 @@
-# change-risk-lora
+# Change Risk Assessment using LoRA
 
-**Proof of Concept: Change Risk Assessment using LoRA**
-
-This project demonstrates how **Low-Rank Adaptation (LoRA)** can be used to teach a language model **operational risk judgment** for **security and access control changes**, using a **fully local setup**.
+This POC project demonstrates how **Low-Rank Adaptation (LoRA)** can be used to teach a language model **operational risk judgment** for **security and access control changes**, using a **fully local setup**.
 
 The goal is not to predict vulnerabilities, but to **reason about change impact before execution**, similar to how senior engineers review changes during approval workflows.
 
