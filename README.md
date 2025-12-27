@@ -45,7 +45,26 @@ This project fine-tunes behavior, not knowledge.
 	•	The final model runs locally via Ollama
 
 ---
+## Steps
+### LoRA Training
+```bash
+python training/train_lora.py
+```
 
+### Merge LoRA Adapter into Base Model
+```bash
+python training/merge_lora.py
+
+```
+### Export Merged Model to GGUF
+```
+git clone https://github.com/ggerganov/llama.cpp.git
+pip install sentencepiece protobuf
+
+python llama.cpp/convert_hf_to_gguf.py \
+  training/merged_model \
+  --outfile change-risk-lora.gguf
+```
 ## Inference
 
 The LoRA-adapted model is exported to **GGUF** format and executed locally using **Ollama**.
