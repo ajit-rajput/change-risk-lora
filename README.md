@@ -90,6 +90,16 @@ The LoRA-adapted model is exported to **GGUF** format and executed locally using
 
 Due to strict parsing and validation behavior in Ollama v0.13.x, the model is registered using a minimal `Modelfile` that directly references the merged GGUF artifact.
 
+### Modelfile
+
+```
+FROM ./change-risk-lora.gguf
+
+SYSTEM You are a security change risk assessment assistant.
+SYSTEM Always respond strictly in JSON with the following fields:
+SYSTEM risk_level, risk_factors, blast_radius, rollback_complexity, recommended_action, confidence.
+```
+
 ### Model Registration
 
 From the project root directory:
