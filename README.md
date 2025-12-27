@@ -58,19 +58,22 @@ From the project root directory:
 
 ```bash
 ollama create changeriskmodel -f Modelfile
+```
 
 ```bash
 ollama list
+```
 
 ```bash
 ollama run changeriskmodel
+```
 
 Example Prompt
 
 ```text
 Assess the security risk of the change:
 Disable MFA for admin role to simplify emergency access
-
+```
 Respond strictly in JSON.
 
 ```json
@@ -84,4 +87,4 @@ Respond strictly in JSON.
   "rollback_complexity": "Easy",
   "recommended_action": "Use a monitored break-glass account instead of disabling MFA",
   "confidence": "High"
-}
+}```
