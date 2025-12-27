@@ -20,9 +20,28 @@ Given a natural-language change description, the model produces a **structured r
 ```
 ---
 
-## Flow
+## Dataset
 
-Dataset (JSON) --> LoRA Training (local, CPU) --> LoRA Adapter Weights --> Merged Model --> GGUP Export --> Ollama (local inference)
+The training dataset consists of **hand-crafted gold samples** representing
+realistic security and access-control change scenarios.
+
+Characteristics:
+- Small, high-signal dataset
+- Synthetic but production-inspired
+- Focused on risk amplification patterns
+- Assumes a production environment by default
+
+The dataset is intentionally small to demonstrate how LoRA can encode
+domain judgment with limited data.
+
+## End to End Flow
+
+Dataset (JSON)  
+→ LoRA Training (local, CPU)  
+→ LoRA Adapter Weights  
+→ Merged Model  
+→ GGUF Export  
+→ Ollama (local inference)
 
 ---
 
@@ -41,6 +60,8 @@ This project fine-tunes behavior, not knowledge.
 	•	The LoRA adapter is merged into the base model
 	•	The merged model is converted to GGUF
 	•	The final model runs locally via Ollama
+
+Note: No base model needs to be preloaded in Ollama; the merged GGUF model in further steps is fully self-contained.
 
 ---
 ## Steps
@@ -104,4 +125,4 @@ Respond strictly in JSON.
   "rollback_complexity": "Easy",
   "recommended_action": "Use a monitored break-glass account instead of disabling MFA",
   "confidence": "High"
-}```
+}
