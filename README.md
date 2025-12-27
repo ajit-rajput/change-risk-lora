@@ -20,9 +20,13 @@ Given a natural-language change description, the model produces a **structured r
   "confidence": "High"
 }
 
+---
+
 ## Flow
 
 Dataset (JSON) --> LoRA Training (local, CPU) --> LoRA Adapter Weights --> Merged Model --> GGUP Export --> Ollama (local inference)
+
+---
 
 ## Why LoRA
 
