@@ -1,0 +1,13 @@
+.venv
+/llama.cpp
+__pycache__/
+.ipynb_checkpoints
+.DS_Store
+.vscode/
+data/
+outputs/
+models/
+logs/
+training/lora_adapter/
+training/merged_model/
+change-risk-lora.gguf

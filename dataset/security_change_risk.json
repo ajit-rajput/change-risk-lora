@@ -1,0 +1,150 @@
+[
+  {
+    "instruction": "Assess the security risk of the change",
+    "input": "Disable MFA for admin role to simplify emergency access",
+    "output": {
+      "risk_level": "Critical",
+      "risk_factors": [
+        "Disabling MFA significantly weakens account security",
+        "Admin role compromise would result in full account takeover"
+      ],
+      "blast_radius": "Organization-wide",
+      "rollback_complexity": "Easy",
+      "recommended_action": "Use monitored break-glass accounts instead of disabling MFA",
+      "confidence": "High"
+    }
+  },
+  {
+    "instruction": "Assess the security risk of the change",
+    "input": "Allow inbound SSH access from 0.0.0.0/0 to production instances",
+    "output": {
+      "risk_level": "Critical",
+      "risk_factors": [
+        "Public SSH access increases exposure to brute-force attacks",
+        "Production instances become directly reachable from the internet"
+      ],
+      "blast_radius": "Account",
+      "rollback_complexity": "Easy",
+      "recommended_action": "Restrict SSH access to known IP ranges or use a bastion host",
+      "confidence": "High"
+    }
+  },
+  {
+    "instruction": "Assess the security risk of the change",
+    "input": "Grant read-only S3 access to analytics role for all production buckets",
+    "output": {
+      "risk_level": "Medium",
+      "risk_factors": [
+        "Broad access to production data increases data exposure risk",
+        "Analytics role may not require access to all buckets"
+      ],
+      "blast_radius": "Account",
+      "rollback_complexity": "Easy",
+      "recommended_action": "Limit access to specific required buckets and apply least privilege",
+      "confidence": "Medium"
+    }
+  },
+  {
+    "instruction": "Assess the security risk of the change",
+    "input": "Extend access token validity from 1 hour to 24 hours for internal APIs",
+    "output": {
+      "risk_level": "Medium",
+      "risk_factors": [
+        "Long-lived tokens increase impact if compromised",
+        "Reduced ability to quickly revoke access"
+      ],
+      "blast_radius": "Service",
+      "rollback_complexity": "Easy",
+      "recommended_action": "Limit token extension to necessary services and monitor usage",
+      "confidence": "Medium"
+    }
+  },
+  {
+    "instruction": "Assess the security risk of the change",
+    "input": "Rotate database credentials used by reporting service with no permission changes",
+    "output": {
+      "risk_level": "Low",
+      "risk_factors": [
+        "Credential rotation improves overall security posture"
+      ],
+      "blast_radius": "Service",
+      "rollback_complexity": "Moderate",
+      "recommended_action": "Proceed with rotation and validate service connectivity",
+      "confidence": "High"
+    }
+  },
+  {
+    "instruction": "Assess the security risk of the change",
+    "input": "Add wildcard trust relationship allowing all accounts to assume a production IAM role",
+    "output": {
+      "risk_level": "Critical",
+      "risk_factors": [
+        "Wildcard trust allows unauthorized cross-account access",
+        "Breaks isolation between production and other environments"
+      ],
+      "blast_radius": "Organization-wide",
+      "rollback_complexity": "Moderate",
+      "recommended_action": "Restrict trust relationships to explicitly approved accounts",
+      "confidence": "High"
+    }
+  },
+  {
+    "instruction": "Assess the security risk of the change",
+    "input": "Temporarily disable WAF rules to troubleshoot application issues",
+    "output": {
+      "risk_level": "High",
+      "risk_factors": [
+        "Disabling WAF removes protection against common attacks",
+        "Temporary changes may be left enabled longer than intended"
+      ],
+      "blast_radius": "Service",
+      "rollback_complexity": "Easy",
+      "recommended_action": "Disable only specific rules and re-enable protection immediately after troubleshooting",
+      "confidence": "High"
+    }
+  },
+  {
+    "instruction": "Assess the security risk of the change",
+    "input": "Grant CI pipeline permission to modify production IAM policies",
+    "output": {
+      "risk_level": "High",
+      "risk_factors": [
+        "Automated systems modifying IAM policies increase blast radius",
+        "Compromised CI pipeline could escalate privileges"
+      ],
+      "blast_radius": "Account",
+      "rollback_complexity": "Moderate",
+      "recommended_action": "Limit CI permissions and require manual approval for IAM changes",
+      "confidence": "High"
+    }
+  },
+  {
+    "instruction": "Assess the security risk of the change",
+    "input": "Reduce password complexity requirements to improve user experience",
+    "output": {
+      "risk_level": "High",
+      "risk_factors": [
+        "Weaker passwords increase likelihood of credential compromise",
+        "Reduced effectiveness of brute-force protections"
+      ],
+      "blast_radius": "Organization-wide",
+      "rollback_complexity": "Easy",
+      "recommended_action": "Maintain strong password policies and explore usability improvements instead",
+      "confidence": "High"
+    }
+  },
+  {
+    "instruction": "Assess the security risk of the change",
+    "input": "Enable audit logging for all authentication events",
+    "output": {
+      "risk_level": "Low",
+      "risk_factors": [
+        "Change improves visibility and security monitoring"
+      ],
+      "blast_radius": "Organization-wide",
+      "rollback_complexity": "Easy",
+      "recommended_action": "Proceed and ensure logs are retained and monitored",
+      "confidence": "High"
+    }
+  }
+]
